@@ -1,0 +1,16 @@
+https://pbcompaan.nl
+
+log {
+  output file /var/log/caddy.blog.log
+  format single_field common_log
+}
+
+root * /data/caddy-blog/blog
+
+file_server
+templates
+encode gzip
+
+try_files {path}.html {path}
+
+rewrite /posts/* /posts/index.html
